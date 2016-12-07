@@ -1,3 +1,11 @@
+#Very Useful package, if you want to find what package does a function belongs, use finFn() in 'sos'
+install.packages("sos")
+library("sos")
+findFn("laply")   
+
+my.matrix<-matrix(0,1000,2)
+my.list<<- rep(list(my.matrix),20001)
+####################################################################################################
 g = read.table("hash2sum.txt")
 g=data.frame(sort(g[,1]))
 #x<-as.vector(g[,1]) #convert dataframe to vector
@@ -30,8 +38,9 @@ range$ceil<-as.integer(ceiling(range[,3]))   #column index:: 5 range[,3] is colu
 #library("digest")
 #a<-sapply(t,digest,algo="xxhash32")
 #install.packages("formattable") <<-only for first time
+library("plyr")
 library("formattable")
-myhash<-myfunction(X,G){
+myhash<-myfunction(X,g){
   for(i in 1:length(X)){
   x=X[i]  
   y_upper=10000 - x
@@ -48,12 +57,25 @@ myhash<-myfunction(X,G){
   a_upper<-y[1,3]  #upperbound in a
   a_lower<-y[2,3]  #lowerbound in a
   
-  G_tmp<-subset(g,floor==f & ceil==c &  n==dn & a>=a_lower & a<=a_upper)
+  g_tmp<-subset(g,floor==f & ceil==c &  n==dn & a>=a_lower & a<=a_upper)
   
-  if(nrow(G_tmp)==0){next}
-  else{
+  if(nrow(g_tmp)>0){
     
-  }
+    y=g_tmp[,1]
+    k=as.character(x+y)
+    id<-laply(k,function(k){h[[k]]}) #enable hash over all elements in k and return the value in one vector
+    for(i in 1:length(id)){
+      m<-my.list[[id[i]]]
+      n<-nrow(m)
+      if(n/)
+      m[n+1,]<-
+      my.list[[id[i]]]<<-
+      rm(m,n)
+    }
+    
+    
+    
+    }
   
   
   
