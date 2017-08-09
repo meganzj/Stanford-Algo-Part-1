@@ -22,7 +22,6 @@ myQS<-function(x,l,r){
   #print(c("length",n))
   if(n%%2==0){
     p_Index=n/2
-    
     p2=x[l+p_Index-1]
   }
   else{
